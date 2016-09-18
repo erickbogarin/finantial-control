@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Fazer login</h2>
+
+<form class="ui form" action="@Url.Action("Autentica")" method="post">
+    <div class="ui field">
+        <label for="login">Login</label>
+        <input id="login" type="email" name="login" class="form-control" />
+    </div>
+
+    <div class="ui field">
+        <label for="senha">Senha</label>
+        <input id="senha" type="password" name="senha" class="form-control" />
+    </div>
+    
+    <input type="submit" value="Entrar" class="ui primary button" />
+    
+</form>

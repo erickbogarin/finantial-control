@@ -1,0 +1,23 @@
+﻿@model IList<Financas.Entidades.Usuario>
+
+<h2>Usuários</h2>
+
+@Html.ActionLink("Novo usuário", "Form", null , new { @class = "ui primary button" })
+
+<table class="ui celled striped table">
+    <thead>
+        <th>Id</th>
+        <th>Nome</th>
+        <th>E-Mail</th>
+    </thead>
+    <tbody>
+        @foreach(var usuario in Model) 
+        {
+           <tr>
+             <td>@usuario.Id</td>
+            <td>@usuario.Nome</td>
+            <td>@usuario.Email</td>
+           </tr>
+        }
+    </tbody>
+</table>

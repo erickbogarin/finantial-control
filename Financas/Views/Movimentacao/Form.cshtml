@@ -1,0 +1,34 @@
+﻿@model Financas.Entidades.Movimentacao
+
+<h2>Adicionar Movimentação</h2>
+<div class="ui form">
+    @using (Html.BeginForm("Adiciona", "Movimentacao", FormMethod.Post))
+    {
+        <div class="field">
+            @Html.LabelFor(m => m.Valor, "Valor")
+            @Html.TextBoxFor(m => m.Valor, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Valor)
+        </div>
+
+        <div class="field">
+            @Html.LabelFor(m => m.Usuario)
+            @Html.DropDownListFor(m => m.UsuarioId,
+        new SelectList(ViewBag.Usuarios, "Id", "Nome"),
+        new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.UsuarioId)
+        </div>
+
+        <div class="field">
+            @Html.LabelFor(m => m.Tipo, "Tipo")
+            @Html.EnumDropDownListFor(m => m.Tipo, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Tipo)
+        </div>
+
+        <div class="field">
+            @Html.LabelFor(m => m.Data, "Data")
+            @Html.TextBoxFor(m => m.Data, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Data)
+        </div>
+            <input type="submit" class="ui button" value="Cadastrar" />
+       }
+</div>

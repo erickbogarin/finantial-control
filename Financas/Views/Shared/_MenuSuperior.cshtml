@@ -1,0 +1,38 @@
+﻿<div class="ui fixed menu">
+    <div class="ui container">
+        
+        <a href="@Url.Action("Index","Home")" class="header item">
+            <img class="logo" src="http://2012.newadventuresconf.com/assets/images/content/sponsor_net.png">
+            Finanças
+        </a>
+        
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="ui dropdown item">
+                Consultas
+                <i class="dropdown icon"></i>
+                <div class="menu">
+                    @Html.ActionLink("Movimentações por usuário", "MovimentacoesPorUsuario", "Movimentacao", new { area = "" }, new { @class = "item" })
+                    @Html.ActionLink("Busca de movimentações", "Busca", "Movimentacao", new { area = "" }, new { @class = "item" }) 
+                </div>        
+            </div>
+        }
+
+        <div class="right menu">
+            @Html.ActionLink("Usuários", "Index", "Usuario", new { area = "" }, new { @class = "item" })
+            @Html.ActionLink("Movimentações", "Index", "Movimentacao", new { area = "" }, new { @class = "item" })
+
+            @if (User.Identity.IsAuthenticated)
+            {
+                @Html.ActionLink("Logout", "Logout", "Login", new { area = "" }, new { @class = "item" })
+            }
+            else
+            {
+                @Html.ActionLink("Entrar", "Index", "Login", new { area = "" }, new { @class = "item" })
+            }
+        </div>
+    </div>
+</div>
+
+
+
